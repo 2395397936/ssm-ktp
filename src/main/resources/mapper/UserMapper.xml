@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pys.dao.UserMapper">
+    <select id="queryUserByIdAndPassword" resultType="User">
+        select *
+        from user
+        where id = #{id}
+          and password = #{password}
+    </select>
+    
+    <insert id="saveUser" parameterType="User">
+        insert into user values (#{id},#{status},#{name},#{username},#{password})
+    </insert>
+
+    <select id="queryUserById" resultType="com.pys.bean.User">
+        select * from user where id = #{id}
+    </select>
+</mapper>
